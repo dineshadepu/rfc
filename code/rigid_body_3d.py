@@ -31,6 +31,27 @@ from boundary_particles import (get_boundary_identification_etvf_equations,
                                 add_boundary_identification_properties)
 
 
+def get_files_at_given_times_from_log(files, times, logfile):
+    import re
+    result = []
+    time_pattern = r"output at time\ (\d+(?:\.\d+)?)"
+    file_count, time_count = 0, 0
+    with open(logfile, 'r') as f:
+        for line in f:
+            if time_count >= len(times):
+                break
+            t = re.findall(time_pattern, line)
+            if t:
+                if float(t[0]) in times:
+                    result.append(files[file_count])
+                    time_count += 1
+                elif float(t[0]) > times[time_count]:
+                    result.append(files[file_count])
+                    time_count += 1
+                file_count += 1
+    return result
+
+
 def add_properties_stride(pa, stride=1, *props):
     for prop in props:
         pa.add_property(name=prop, stride=stride)

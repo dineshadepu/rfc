@@ -15,8 +15,8 @@ from pysph.solver.utils import load, get_files
 
 matplotlib.use('pdf')
 
-n_core = 4
-n_thread = 8
+n_core = 2
+n_thread = 4
 backend = ' --openmp '
 
 
@@ -74,7 +74,28 @@ def get_files_at_given_times_from_log(files, times, logfile):
     return result
 
 
-class De2021CylinderRollingOnAnInclinedPlane2d(Problem):
+class ProblemMoveFigures(Problem):
+    def move_figures(self):
+        import shutil
+        import os
+
+        for name in self.case_info:
+            source = self.input_path(name)
+
+            target_dir = "manuscript/figures/" + source[8:] + "/"
+            os.makedirs(target_dir)
+            # print(target_dir)
+
+            file_names = os.listdir(source)
+
+            for file_name in file_names:
+                # print(file_name)
+                if file_name.endswith((".jpg", ".pdf", ".png")):
+                    # print(target_dir)
+                    shutil.copy(os.path.join(source, file_name), target_dir)
+
+
+class De2021CylinderRollingOnAnInclinedPlane2d(ProblemMoveFigures):
     """
     For pure rigid body problems we use RigidBody3DScheme.
     Scheme used: RigidBody3DScheme
@@ -130,24 +151,96 @@ class De2021CylinderRollingOnAnInclinedPlane2d(Problem):
         plt.clf()
         plt.close()
 
-    def move_figures(self):
-        import shutil
-        import os
+
+class Mohseni2021FreeSlidingOnASlope2D(ProblemMoveFigures):
+    """
+    For pure rigid body problems we use RigidBody3DScheme.
+    Scheme used: RigidBody3DScheme
+    """
+    def get_name(self):
+        return 'mohseni_2021_free_sliding_on_a_slope_2d'
+
+    def setup(self):
+        get_path = self.input_path
+
+        cmd = 'python code/mohseni_2021_free_sliding_on_a_slope_2d.py' + backend
+
+        opts = mdict(fric_coeff=[0.2, 0.3, 0.6])
+
+        self.cases = []
+        self.case_info = {}
+        for kw in opts:
+            name = opts2path(kw)
+            name = name.replace(".", "_")
+            self.cases.append(
+                Simulation(get_path(name), cmd,
+                           job_info=dict(n_core=n_core,
+                                         n_thread=n_thread), cache_nnps=None,
+                           scheme='rb3d', pfreq=200, kr=1e7, kf=1e5, tf=1.,
+                           **kw))
+            self.case_info.update({name: rf"$\mu=${kw['fric_coeff']}"})
+
+    def run(self):
+        self.make_output_dir()
+        self.plot_velocity()
+        self.move_figures()
+
+    def plot_velocity(self):
+        data = {}
+        for name in self.case_info:
+            data[name] = np.load(self.input_path(name, 'results.npz'))
 
         for name in self.case_info:
-            source = self.input_path(name)
+            t_analytical = data[name]['t_analytical']
+            v_analytical = data[name]['v_analytical']
 
-            target_dir = "manuscript/figures/" + source[8:] + "/"
-            os.makedirs(target_dir)
-            # print(target_dir)
+            t = data[name]['t']
+            velocity_rbd = data[name]['velocity_rbd']
 
-            file_names = os.listdir(source)
+            plt.plot(t_analytical, v_analytical, '-', label=self.case_info[name] + ', analytical')
+            plt.plot(t, velocity_rbd, '^', label=self.case_info[name])
 
-            for file_name in file_names:
-                # print(file_name)
-                if file_name.endswith((".jpg", ".pdf", ".png")):
-                    # print(target_dir)
-                    shutil.copy(os.path.join(source, file_name), target_dir)
+        plt.xlabel('time')
+        plt.ylabel('')
+        plt.legend(prop={'size': 12})
+        # plt.tight_layout(pad=0)
+        plt.savefig(self.output_path('velocity_vs_time.pdf'))
+        plt.clf()
+        plt.close()
+
+
+class Mohseni2021ControlledSliding2D(ProblemMoveFigures):
+    """
+    For pure rigid body problems we use RigidBody3DScheme.
+    Scheme used: RigidBody3DScheme
+    """
+    def get_name(self):
+        return 'mohseni_2021_controlled_sliding_on_a_flat_surface_2d'
+
+    def setup(self):
+        get_path = self.input_path
+
+        cmd = 'python code/mohseni_2021_controlled_sliding_on_a_flat_surface_2d.py' + backend
+
+        opts = mdict(fric_coeff=[0.5])
+
+        self.cases = []
+        self.case_info = {}
+        for kw in opts:
+            name = opts2path(kw)
+            name = name.replace(".", "_")
+            self.cases.append(
+                Simulation(get_path(name), cmd,
+                           job_info=dict(n_core=n_core,
+                                         n_thread=n_thread), cache_nnps=None,
+                           scheme='rb3d', pfreq=100, kr=1e7, kf=1e5, tf=1.,
+                           detailed=None,
+                           **kw))
+            self.case_info.update({name: rf"$\mu=${kw['fric_coeff']}"})
+
+    def run(self):
+        self.make_output_dir()
+        self.move_figures()
 
 
 if __name__ == '__main__':
@@ -159,7 +252,9 @@ if __name__ == '__main__':
         # Only rigid body problems
         # ========================
         # Current paper problem
-        De2021CylinderRollingOnAnInclinedPlane2d  # DEM
+        De2021CylinderRollingOnAnInclinedPlane2d,  # DEM
+        Mohseni2021FreeSlidingOnASlope2D,  # DEM
+        Mohseni2021ControlledSliding2D  # DEM
     ]
 
     automator = Automator(simulation_dir='outputs',
