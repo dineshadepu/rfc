@@ -243,6 +243,36 @@ class Mohseni2021ControlledSliding2D(ProblemMoveFigures):
         self.move_figures()
 
 
+class StackOfCylinders2D(ProblemMoveFigures):
+    def get_name(self):
+        return 'stack_of_cylinders_2d'
+
+    def setup(self):
+        get_path = self.input_path
+
+        cmd = 'python code/stack_of_cylinders.py' + backend
+
+        opts = mdict(fric_coeff=[0.45])
+
+        self.cases = []
+        self.case_info = {}
+        for kw in opts:
+            name = opts2path(kw)
+            name = name.replace(".", "_")
+            self.cases.append(
+                Simulation(get_path(name), cmd,
+                           job_info=dict(n_core=n_core,
+                                         n_thread=n_thread), cache_nnps=None,
+                           scheme='rb3d', pfreq=100, kr=1e7, kf=1e5,
+                           detailed=None,
+                           **kw))
+            self.case_info.update({name: rf"$\mu=${kw['fric_coeff']}"})
+
+    def run(self):
+        self.make_output_dir()
+        self.move_figures()
+
+
 if __name__ == '__main__':
     import matplotlib
     matplotlib.use('pdf')
@@ -254,7 +284,8 @@ if __name__ == '__main__':
         # Current paper problem
         De2021CylinderRollingOnAnInclinedPlane2d,  # DEM
         Mohseni2021FreeSlidingOnASlope2D,  # DEM
-        Mohseni2021ControlledSliding2D  # DEM
+        Mohseni2021ControlledSliding2D,  # DEM
+        StackOfCylinders2D,  # DEM
     ]
 
     automator = Automator(simulation_dir='outputs',
