@@ -273,6 +273,44 @@ class StackOfCylinders2D(ProblemMoveFigures):
         self.move_figures()
 
 
+class Dinesh2022BodyInHSTank2d(ProblemMoveFigures):
+    def get_name(self):
+        return 'dinesh_2022_body_in_hs_tank_2d'
+
+    def setup(self):
+        get_path = self.input_path
+
+        cmd = 'python code/dinesh_2022_body_in_hs_tank_2d.py' + backend
+
+        opts = mdict(alpha=[0.1])
+
+        self.cases = []
+        self.case_info = {}
+        for kw in opts:
+            name = opts2path(kw)
+            name = name.replace(".", "_")
+            self.cases.append(
+                Simulation(get_path(name), cmd,
+                           job_info=dict(n_core=n_core,
+                                         n_thread=n_thread), cache_nnps=None,
+                           integrator="gtvf",
+                           no_internal_flow=None,
+                           pst='sun2019',
+                           edac=None,
+                           no_summation=None,
+                           clamp_pressure=None,
+                           scheme='etvf',
+                           pfreq=100,
+                           tf=2.,
+                           detailed=None,
+                           **kw))
+            self.case_info.update({name: rf"$\alpha=${kw['alpha']}"})
+
+    def run(self):
+        self.make_output_dir()
+        self.move_figures()
+
+
 if __name__ == '__main__':
     import matplotlib
     matplotlib.use('pdf')
@@ -281,11 +319,15 @@ if __name__ == '__main__':
         # ========================
         # Only rigid body problems
         # ========================
-        # Current paper problem
         De2021CylinderRollingOnAnInclinedPlane2d,  # DEM
         Mohseni2021FreeSlidingOnASlope2D,  # DEM
         Mohseni2021ControlledSliding2D,  # DEM
         StackOfCylinders2D,  # DEM
+
+        # ========================
+        # rigid fluid coupling problems
+        # ========================
+        Dinesh2022BodyInHSTank2d
     ]
 
     automator = Automator(simulation_dir='outputs',
