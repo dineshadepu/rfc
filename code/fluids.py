@@ -1979,7 +1979,7 @@ class ETVFScheme(Scheme):
             for name in self.rigid_bodies:
                 g5.append(
                     ComputeContactForceNormalsMohseni(
-                        dest=name, sources=self.rigid_bodies))
+                        dest=name, sources=self.rigid_bodies+self.solids))
 
             stage2.append(Group(equations=g5, real=False))
 
@@ -1987,7 +1987,7 @@ class ETVFScheme(Scheme):
             for name in self.rigid_bodies:
                 g5.append(
                     ComputeContactForceDistanceAndClosestPointMohseni(
-                        dest=name, sources=self.rigid_bodies))
+                        dest=name, sources=self.rigid_bodies+self.solids))
             stage2.append(Group(equations=g5, real=False))
 
         if len(self.rigid_bodies) > 0:
@@ -2096,8 +2096,6 @@ class ETVFScheme(Scheme):
             pa.add_output_arrays(['normal'])
             pa.add_property('normal_tmp', stride=3)
 
-            name = pa.name
-
             props = ['m', 'rho', 'h']
             for p in props:
                 x = pa.get(p)
@@ -2105,14 +2103,20 @@ class ETVFScheme(Scheme):
                     msg = f'WARNING: cannot compute normals "{p}" is zero'
                     print(msg)
 
-            seval = SPHEvaluator(
-                arrays=[pa], equations=[
-                    Group(
-                        equations=[ComputeNormals(dest=name, sources=[name])]),
-                    Group(
-                        equations=[SmoothNormals(dest=name, sources=[name])]),
-                ], dim=self.dim)
-            seval.evaluate()
+            ####################################################
+            # compute the boundary particles of the rigid body #
+            ####################################################
+            add_boundary_identification_properties(pa)
+            # make sure your rho is not zero
+            equations = get_boundary_identification_etvf_equations([pa.name],
+                                                                   [pa.name])
+
+            sph_eval = SPHEvaluator(arrays=[pa],
+                                    equations=equations,
+                                    dim=self.dim,
+                                    kernel=QuinticSpline(dim=self.dim))
+
+            sph_eval.evaluate(dt=0.1)
 
         for rigid_body in self.rigid_bodies:
             pa = pas[rigid_body]

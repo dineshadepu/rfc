@@ -10,28 +10,33 @@ from pysph.base.utils import (get_particle_array)
 from rigid_body_3d import RigidBody3DScheme
 # from rigid_body_common import setup_damping_coefficient
 
-from pysph.tools.geometry import get_2d_block, get_2d_tank
-
-from geometry import (create_circle_1, create_circle, hydrostatic_tank_2d)
+from geometry import (get_fluid_tank_3d, get_2d_block, hydrostatic_tank_2d)
 from boundary_particles import (add_boundary_identification_properties,
                                 get_boundary_identification_etvf_equations)
 from fluids import ETVFScheme
 
 
-class CubeFallingInWater(Application):
+class Qiu2017FallingSolidInWater2D(Application):
     def initialize(self):
         # Parameters specific to the world
         self.dim = 2
-        spacing = 0.03
+        spacing = 2. * 1e-3
         self.hdx = 1.0
         self.alpha = 0.1
         self.gx = 0.
         self.gy = - 9.81
+        self.gz = 0.
         self.h = self.hdx * spacing
 
         # Fluid parameters
-        self.fluid_column_height = 1.0
-        self.fluid_column_width = 1.5
+        self.fluid_column_length = 140. * 1e-3
+        self.fluid_column_height = 52. * 1e-3
+        # We do not use this in 2 dimensions
+        self.fluid_column_depth = 140. * 1e-3
+        self.fluid_length = 140. * 1e-3
+        self.fluid_height = 52. * 1e-3
+        # We do not use this in 2 dimensions
+        self.fluid_depth = 140. * 1e-3
         self.fluid_spacing = spacing
         self.fluid_rho = 1000.0
         self.vref = np.sqrt(2*abs(self.gy)*self.fluid_column_height)
@@ -45,20 +50,31 @@ class CubeFallingInWater(Application):
             boundaries=["dam", "rigid_body"])
 
         # Physical parameters of the rigid body
-        self.rigid_body_radius = 0.2
-        self.rigid_body_diameter = 2. * self.rigid_body_radius
+        # x dimension
+        self.rigid_body_length = 49. * 1e-3
+        # y dimension
+        self.rigid_body_height = 24. * 1e-3
+        # z dimension
+        self.rigid_body_depth = 48. * 1e-3
         self.rigid_body_spacing = spacing
-        self.rigid_body_rho = 500
+        self.rigid_body_rho = 800.52
 
         # Physical parameters of the wall (or tank) body
-        self.dam_length = 1.5
-        self.dam_height = 1.5
+        self.dam_length = 140. * 1e-3
+        self.dam_height = 140 * 1e-3
+        self.dam_depth = 140 * 1e-3  # ignored in 3d
         self.dam_spacing = spacing
         self.dam_layers = 5
         self.dam_rho = 1000.
+        self.tank_length = 140. * 1e-3
+        self.tank_height = 140 * 1e-3
+        self.tank_depth = 140 * 1e-3
+        self.tank_spacing = spacing
+        self.tank_layers = 5
+        self.tank_rho = 1000.
 
         # solver data
-        self.tf = 0.5
+        self.tf = 1.5
         self.dt = 1e-4
 
         # Rigid body collision related data
@@ -71,16 +87,14 @@ class CubeFallingInWater(Application):
         from pysph.tools.sph_evaluator import SPHEvaluator
         from pysph.base.kernels import (QuinticSpline)
         # create a row of six cylinders
-        m = self.rigid_body_rho * self.rigid_body_spacing**2
+        m = self.rigid_body_rho * self.rigid_body_spacing**self.dim
         h = self.h
         rad_s = self.rigid_body_spacing / 2.
         # these are overridden for this example only.
         # This will change for another case
-        x, y = create_circle_1(
-            self.rigid_body_diameter, self.rigid_body_spacing, [
-                self.rigid_body_radius,
-                self.rigid_body_radius + self.rigid_body_spacing / 2.
-            ])
+        x, y = get_2d_block(dx=self.rigid_body_spacing,
+                            length=self.rigid_body_length,
+                            height=self.rigid_body_height)
 
         pa = get_particle_array(name='pa',
                                 x=x,
@@ -110,9 +124,9 @@ class CubeFallingInWater(Application):
         return pa.is_boundary
 
     def create_rigid_body(self):
-        from geometry import create_circle_1
-
-        x, y = create_circle_1(self.rigid_body_diameter, self.rigid_body_spacing)
+        x, y = get_2d_block(dx=self.rigid_body_spacing,
+                            length=self.rigid_body_length,
+                            height=self.rigid_body_height)
 
         body_id = np.array([], dtype=int)
         for i in range(1):
@@ -155,9 +169,14 @@ class CubeFallingInWater(Application):
     def create_dam(self):
         # create dam with normals
         _xf, _yf, xd, yd = hydrostatic_tank_2d(
-            self.dam_length, self.dam_height, self.dam_height, self.dam_layers,
-            self.rigid_body_spacing, self.rigid_body_spacing)
-        m = self.fluid_rho * self.rigid_body_spacing**2
+            fluid_length=self.fluid_length,
+            fluid_height=self.fluid_height,
+            tank_height=self.tank_height,
+            tank_layers=self.tank_layers,
+            fluid_spacing=self.fluid_spacing,
+            tank_spacing=self.tank_spacing)
+
+        m = self.fluid_rho * self.rigid_body_spacing**self.dim
         h = self.h
         dam = get_particle_array(x=xd,
                                  y=yd,
@@ -168,7 +187,7 @@ class CubeFallingInWater(Application):
                                  name="dam",
                                  E=30*1e8,
                                  nu=0.3)
-        dam.add_property('dem_id', type='int', data=33)
+        dam.add_property('dem_id', type='int', data=1)
         return dam
 
     def set_dam_boundary(self, dam):
@@ -176,16 +195,21 @@ class CubeFallingInWater(Application):
         dam.contact_force_is_boundary[:] = dam.is_boundary[:]
 
     def create_fluid(self):
-        xf, yf = get_2d_block(dx=self.fluid_spacing,
-                              length=self.fluid_column_width,
-                              height=self.fluid_column_height,
-                              center=[-1.5, 1])
+        # create dam with normals
+        xf, yf, _xd, _yd = hydrostatic_tank_2d(
+            fluid_length=self.fluid_length,
+            fluid_height=self.fluid_height,
+            tank_height=self.tank_height,
+            tank_layers=self.tank_layers,
+            fluid_spacing=self.fluid_spacing,
+            tank_spacing=self.tank_spacing)
 
         h = self.hdx * self.fluid_spacing
         self.h = h
-        m = self.fluid_spacing**2 * self.fluid_rho
+        m = self.fluid_spacing**self.dim * self.fluid_rho
         h = self.hdx * self.fluid_spacing
-        fluid = get_particle_array(name='fluid', x=xf, y=yf, h=h, m=m,
+        fluid = get_particle_array(name='fluid', x=xf, y=yf,
+                                   h=h, m=m,
                                    rho=self.fluid_rho)
 
         if self.options.pst == "sun2019":
@@ -203,27 +227,21 @@ class CubeFallingInWater(Application):
         rigid_body.rho_fsi[:] = 1000.
 
     def adjust_geometry(self, rigid_body, dam, fluid):
-        dam.x += 2.0
-        fluid.x += min(dam.x) - min(fluid.x) + (self.dam_layers - 1) * self.fluid_spacing
-        fluid.x += self.fluid_spacing
-        fluid.y += self.fluid_spacing
-        fluid.y -= min(fluid.y) - min(dam.y) - self.dam_layers * self.fluid_spacing
-
-        rigid_body.y[:] += max(fluid.y) - min(rigid_body.y) - self.rigid_body_diameter/2.
-        rigid_body.y[:] += self.rigid_body_diameter / 1.5
-        # rigid_body.x[:] -= self.rigid_body_length
-        rigid_body.x[:] -= min(rigid_body.x) - min(fluid.x)
-        rigid_body.x[:] += self.fluid_column_width / 2. - self.rigid_body_diameter / 2.
-
-        # for floating case
-        rigid_body.y[:] -= self.rigid_body_diameter * 2.
-        rigid_body.y[:] += self.fluid_spacing / 2.
+        # Place the rigid body at right position
+        rigid_body.y[:] -= min(rigid_body.y) - min(fluid.y)
+        rigid_body.y[:] += self.fluid_spacing * 3.
+        # rigid_body.y[:] -= self.rigid_body_height / 2.
 
         # Remove the fluid particles
         from pysph.tools import geometry as G
         G.remove_overlap_particles(
             fluid, rigid_body, self.fluid_spacing, dim=self.dim
         )
+        # move the whole system so that fluids min y is at zero
+        dx = min(fluid.y)
+        fluid.y -= dx
+        dam.y -= dx
+        rigid_body.y -= dx
 
     def create_particles(self):
         fluid = self.create_fluid()
@@ -243,9 +261,9 @@ class CubeFallingInWater(Application):
     def create_scheme(self):
         etvf = ETVFScheme(
             fluids=['fluid'], solids=['dam'], rigid_bodies=['rigid_body'],
-            dim=2, rho0=self.fluid_rho, c0=self.c0, nu=None, pb=self.p0,
+            dim=self.dim, rho0=self.fluid_rho, c0=self.c0, nu=None, pb=self.p0,
             h=None, u_max=3. * self.vref, mach_no=self.mach_no,
-            internal_flow=False, gy=self.gy, alpha=0.05)
+            internal_flow=False, gy=self.gy, alpha=0.1)
 
         s = SchemeChooser(default='etvf', etvf=etvf)
         return s
@@ -288,10 +306,54 @@ class CubeFallingInWater(Application):
             # When
             a_eval.evaluate(t, dt)
 
+    def post_process(self, fname):
+        from pysph.solver.utils import iter_output, get_files
+        import os
+        info = self.read_info(fname)
+        files = self.output_files
+        t = []
+        system_x = []
+        system_y = []
+        for sd, array in iter_output(files[::10], 'rigid_body'):
+            _t = sd['t']
+            t.append(_t)
+            cm_x = array.xcm[0]
+            cm_y = array.xcm[1]
+
+            system_x.append(cm_x)
+            system_y.append(cm_y)
+
+        import matplotlib.pyplot as plt
+        t = np.asarray(t)
+
+        # gtvf data
+        path = os.path.abspath(__file__)
+        directory = os.path.dirname(path)
+        data = np.loadtxt(
+            os.path.join(
+                directory,
+                'qiu_2017_falling_solid_in_water_vertical_displacement_experimental.csv'
+            ),
+            delimiter=','
+        )
+        ty, ycom_qiu = data[:, 0], data[:, 1]
+
+        plt.plot(ty, ycom_qiu, "s--", label='Experimental')
+        plt.plot(t, system_y, "s-", label='Simulated PySPH')
+        plt.xlabel("time")
+        plt.ylabel("y")
+        plt.legend()
+        fig = os.path.join(os.path.dirname(fname), "ycom.pdf")
+        plt.savefig(fig, dpi=300)
+
+    def customize_output(self):
+        self._mayavi_config('''
+        b = particle_arrays['cylinders']
+        b.plot.actor.property.point_size = 2.
+        ''')
+
 
 if __name__ == '__main__':
-    app = CubeFallingInWater()
-    # app.create_particles()
-    # app.geometry()
+    app = Qiu2017FallingSolidInWater2D()
     app.run()
     app.post_process(app.info_filename)
