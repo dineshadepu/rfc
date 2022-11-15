@@ -635,7 +635,8 @@ class RigidBodyWallPressureBC(Equation):
         # extrapolated pressure at the ghost particle
         if d_wij[d_idx] > 1e-14:
             d_p_fsi[d_idx] /= d_wij[d_idx]
-
+        # Towards the modeling of the ditching of a ground-effect wing ship
+        # within the framework of the SPH method
         # set the hydrodynamic density based on pressure
         d_rho_fsi[d_idx] = d_p_fsi[d_idx] / self.c02 + self.rho0
         d_m_fsi[d_idx] = d_rho_fsi[d_idx] * d_m[d_idx] / d_rho[d_idx]

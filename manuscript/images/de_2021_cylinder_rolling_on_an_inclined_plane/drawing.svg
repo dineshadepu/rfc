@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="drawing.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <defs
+     id="defs2">
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker1023"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path1021"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;"
+       id="marker1017"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:collect="always">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path1015" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;"
+       id="marker980"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path978" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;"
+       id="marker976"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path974" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;"
+       id="marker972"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path970" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker2871"
+       style="overflow:visible;"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path2869"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker2835"
+       style="overflow:visible;"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path2833"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path2554"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2513">
+      <stop
+         style="stop-color:#00ff00;stop-opacity:1;"
+         offset="0"
+         id="stop2509" />
+      <stop
+         style="stop-color:#00ff00;stop-opacity:0;"
+         offset="1"
+         id="stop2511" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2513"
+       id="radialGradient2531"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.54607469,0,0,0.54607469,138.98397,-17.707663)"
+       cx="76.351196"
+       cy="136.36012"
+       fx="76.351196"
+       fy="136.36012"
+       r="52.991664" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2513"
+       id="radialGradient1002"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.54607469,0,0,0.54607469,45.985559,-39.58333)"
+       cx="76.351196"
+       cy="136.36012"
+       fx="76.351196"
+       fy="136.36012"
+       r="52.991664" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="-152.72717"
+     inkscape:cy="920.96901"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="992"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.98362541;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 26.779327,85.738499 H 192.7537"
+       id="path2525"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300"
+       inkscape:export-filename="/home/dinesh/collision_sph/manuscript/images/de_2021_cylinder_rolling_on_an_inclined_plane/schematic_2.png" />
+    <circle
+       r="28.896452"
+       cy="56.755161"
+       cx="180.67744"
+       id="circle2527"
+       style="opacity:0.35400008;fill:#008080;fill-opacity:1;fill-rule:nonzero;stroke:url(#radialGradient2531);stroke-width:0.0819112;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       transform="rotate(45)"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path2529"
+       d="M 36.028219,172.42356 181.24733,254.52065"
+       style="fill:none;stroke:#000000;stroke-width:0.83775336;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path2533"
+       d="M 36.028219,254.43158 H 181.15826"
+       style="fill:none;stroke:#000000;stroke-width:0.91978836;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.69141281;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 36.028219,254.43158 V 172.42356"
+       id="path2535"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="M 87.530768,167.90881 110.1607,128.71262"
+       id="path2537"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path2539"
+       d="m 87.530768,167.90881 39.196192,22.62995"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker2835)"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker2871)"
+       d="m 87.530768,167.90881 -10e-6,45.25987"
+       id="path2867"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="127.189"
+       y="193.6235"
+       id="text3235"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300"><tspan
+         sodipodi:role="line"
+         id="tspan3233"
+         x="127.189"
+         y="193.6235"
+         style="stroke-width:0.26458332">x</tspan></text>
+    <text
+       id="text3239"
+       y="128.6116"
+       x="111.12502"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300"><tspan
+         style="stroke-width:0.26458332"
+         y="128.6116"
+         x="111.12502"
+         id="tspan3237"
+         sodipodi:role="line">y</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="79.186317"
+       y="215.74149"
+       id="text3243"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300"><tspan
+         sodipodi:role="line"
+         id="tspan3241"
+         x="79.186317"
+         y="215.74149"
+         style="stroke-width:0.26458332">g</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.565;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 157.9468,241.72098 c -7.35903,2.90755 -7.60886,7.30307 -4.15774,12.47321"
+       id="path3245"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <circle
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       transform="rotate(15)"
+       style="opacity:0.35400008;fill:#008080;fill-opacity:1;fill-rule:nonzero;stroke:url(#radialGradient1002);stroke-width:0.0819112;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle982"
+       cx="87.679039"
+       cy="34.879494"
+       r="28.896452"
+       inkscape:export-filename="/home/dinesh/collision_sph/manuscript/images/de_2021_cylinder_rolling_on_an_inclined_plane/schematic_2.png" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path984"
+       d="m 75.590546,56.44788 10e-7,-45.259863"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker1017)"
+       inkscape:export-filename="/home/dinesh/collision_sph/manuscript/images/de_2021_cylinder_rolling_on_an_inclined_plane/schematic_2.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker2835)"
+       d="m 75.590546,56.44788 45.259864,1.6e-5"
+       id="path986"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/dinesh/collision_sph/manuscript/images/de_2021_cylinder_rolling_on_an_inclined_plane/schematic_2.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path988"
+       d="M 75.590546,56.44788 98.220472,95.644081"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker2871)"
+       inkscape:export-filename="/home/dinesh/collision_sph/manuscript/images/de_2021_cylinder_rolling_on_an_inclined_plane/schematic_2.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <text
+       id="text992"
+       y="59.855785"
+       x="121.75198"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"
+       inkscape:export-filename="/home/dinesh/collision_sph/manuscript/images/de_2021_cylinder_rolling_on_an_inclined_plane/schematic_2.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300"><tspan
+         style="stroke-width:0.26458332"
+         y="59.855785"
+         x="121.75198"
+         id="tspan990"
+         sodipodi:role="line">x</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="77.197182"
+       y="14.638204"
+       id="text996"
+       inkscape:export-filename="/home/dinesh/collision_sph/manuscript/images/de_2021_cylinder_rolling_on_an_inclined_plane/schematic_2.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300"><tspan
+         sodipodi:role="line"
+         id="tspan994"
+         x="77.197182"
+         y="14.638204"
+         style="stroke-width:0.26458332">y</tspan></text>
+    <text
+       id="text1000"
+       y="96.551079"
+       x="98.294701"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"
+       inkscape:export-filename="/home/dinesh/collision_sph/manuscript/images/de_2021_cylinder_rolling_on_an_inclined_plane/schematic_2.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300"><tspan
+         style="stroke-width:0.26458332"
+         y="96.551079"
+         x="98.294701"
+         id="tspan998"
+         sodipodi:role="line">g</tspan></text>
+    <image
+       y="239.35712"
+       x="143.12299"
+       id="image1012"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAABDCAYAAADqOJfJAAAACXBIWXMAAFxGAABcRgEUlENBAAAA
+HnRFWHRBcHBWZXJzaW9uAEtMYXRleEZvcm11bGEgNC4wLjCSNuX2AAAAO3pUWHRBcHBsaWNhdGlv
+bgAACJlzLkpNLElNUSjPLMlQ8PYBsivc8otyS3MSFcpSi4oz8/MUTPQM9AwALsoOCiSOxrMAAAAj
+dEVYdElucHV0QmdDb2xvcgByZ2JhKDI1NSwgMjU1LCAyNTUsIDAp4ejJ7gAAABh0RVh0SW5wdXRC
+eXBhc3NUZW1wbGF0ZQB0cnVl/A9UKAAAAAx0RVh0SW5wdXREUEkANjAwi9DiawAAABl0RVh0SW5w
+dXRGZ0NvbG9yAHJnYigwLCAwLCAwKT4H/okAAAAQdEVYdElucHV0Rm9udFNpemUALTEOCQNiAAAA
+OHpUWHRJbnB1dExhdGV4AAAImYtJSk3PzKtOLSxNLMnMz9OqVa0wSFRQiCnJSC1JBLFjUvNS0KQB
+BeITQSn2MPYAAAARdEVYdElucHV0TWF0aE1vZGUALi4uCNsBdgAAAD96VFh0SW5wdXRQcmVhbWJs
+ZQAACJmLKS1OLUhMzk5MT61OzC3OTSzJqFWtMEiMQRUvrsxNwiaelp9XUgyWAAA+JB0kqQQ+OAAA
+ABB0RVh0SW5wdXRVc2VyU2NyaXB0APXeDvwAAAAWdEVYdElucHV0VXNlclNjcmlwdFBhcmFtcwC9
+zt32AAAAEnRFWHRJbnB1dFZlY3RvclNjYWxlADHChiHPAAAAF3RFWHRTZXR0aW5nc0JCb3JkZXJP
+ZmZzZXQAMDb9LU0AAAAgdEVYdFNldHRpbmdzQ2FsY0Vwc0JvdW5kaW5nQm94AGZhbHNlT1Gm3gAA
+ABd0RVh0U2V0dGluZ3NMQm9yZGVyT2Zmc2V0ADDbjjU4AAAAGnRFWHRTZXR0aW5nc091dGxpbmVG
+b250cwBmYWxzZQyMba0AAAAXdEVYdFNldHRpbmdzUkJvcmRlck9mZnNldAAwcp+yAgAAABd0RVh0
+U2V0dGluZ3NUQm9yZGVyT2Zmc2V0ADBQZWbwAAAAFXRFWHRTZXR0aW5nc1dhbnRQREYAZmFsc2XE
+8r6OAAAAFHRFWHRTZXR0aW5nc1dhbnRSYXcAdHJ1ZQe8HYAAAAAUdEVYdFNldHRpbmdzV2FudFNW
+RwB0cnVloqiBbwAAABx0RVh0U29mdHdhcmUAS0xhdGV4Rm9ybXVsYSA0LjAuMH8N9OMAAAN4SURB
+VGiB7Zr9beMwDMV/CrqAb4SukBWyQm+E3Ai5EdIR0hHaES4jtCM0I8Qj8P6o7CqyqG/foUAfYAR1
+YumVj6RIyUZE+ArY/G8Cufgm2hvfRHvjyxC9W2tgY8wAbJ1bo4i8VQ8oIl0vYA/8ASRwvQP7mnFN
+r4RvjNkBJ+De3hqBF/sJ8OB8dwZ+ishILjpZ8cit5Y7A4P1mAF6d37wWzdFIcGApsyqttejNP7Q6
+0YCFoiSd507eM/erEVVIZlnH+qr73GlNor7c2f4WkF98f+5CNCCdANvCMfzn0y5TOME+MEl2QDjj
+XL0xnrsRtZL5E1xzZMtwnWvqmZK1/mSDyMWjlCRtHYMx5j72gyyixpgDsPNuX0TksZZZAG1EbXFx
+CHzVkyTcFjAL5Fj0yFLyaR2vhT+edm9GlKj1m33gq6dG34xaL4SURUOSAzyVTpSBOult2Ray5ouI
+XGrZpKJbQ8yiD8r9c81EDvoRjfjmKCKtsmsSR1XSLBoiCW2RPkGzaDQ4F0Rt3tSI1jdnn+gm/QN6
+TuthUX+Fm1BmUXRrnlvXdWNMLAVF1bohaoNIG6w12kG3JhQGk5aSoA9R1T+TudmrE/0+aN44KK05
+lTr0XRk/2crMFl1bdju+ZtFkNnGlj/lPj7QUC6T0kpxo2v7VlWwO570nY8yVRE24EkYR+ZH60R3M
+/qORPNMufWy1y/L/aX805p8vrYWIMUYjCZlEp2CKrb898mcskLKW5YmoWnq1FMkONMXecpflFNEe
++XOLrlh2kTMR1QKpR/6M+n/uIBvbG2lYM9EX9V7RLlRaTjGYi3Ct0CmqbTfo/tMj2jWSFxHpRnTN
+aC/uFGLSt1bzmuwjFftWMaKt0qu+WdPSrHkWqhGt2gWMEa2OeFvkhPzzsXalU4k2dpyhzbUq35yw
+oU9SnxEJoqatyg2N0R3AgeWSfBGR360DDwTag8ouc2B5ciLArrmD1drYSqL+KXPVOVSM6HMrUcJH
+h69UnEPF+vpFQNmgKMHJ+3sEfjVmj09ErJHtVyxPjLPON4ult5NlvyAQkNwPoC5+qRHdeZPlnaMv
+96uynqsmGrBq8iCV5e7KKiRDRH0ZgxLykS/9TNHVJ6NEHRdwyR6wKYbPHQ83775T+GJBF6KW0BZ9
+L3N2DQKvDa11RV/QslsxO+sSWz6K6dF+VhXAtfgLUjfMBAdb7E8AAAAASUVORK5CYII=
+"
+       preserveAspectRatio="none"
+       height="12.191244"
+       width="7.642272"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.23226762;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 75.590546,56.44788 10e-7,34.769531"
+       id="path1019"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/dinesh/collision_sph/manuscript/images/de_2021_cylinder_rolling_on_an_inclined_plane/schematic_2.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path1025"
+       d="m 75.569006,66.882541 c 2.827846,1.226124 4.107371,0.08423 4.58086,-2.290429"
+       style="fill:none;stroke:#000000;stroke-width:0.22008653;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/dinesh/collision_sph/manuscript/images/de_2021_cylinder_rolling_on_an_inclined_plane/schematic_2.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <image
+       width="5.8652201"
+       height="9.3564224"
+       preserveAspectRatio="none"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAABDCAYAAADqOJfJAAAACXBIWXMAAFxGAABcRgEUlENBAAAA
+HnRFWHRBcHBWZXJzaW9uAEtMYXRleEZvcm11bGEgNC4wLjCSNuX2AAAAO3pUWHRBcHBsaWNhdGlv
+bgAACJlzLkpNLElNUSjPLMlQ8PYBsivc8otyS3MSFcpSi4oz8/MUTPQM9AwALsoOCiSOxrMAAAAj
+dEVYdElucHV0QmdDb2xvcgByZ2JhKDI1NSwgMjU1LCAyNTUsIDAp4ejJ7gAAABh0RVh0SW5wdXRC
+eXBhc3NUZW1wbGF0ZQB0cnVl/A9UKAAAAAx0RVh0SW5wdXREUEkANjAwi9DiawAAABl0RVh0SW5w
+dXRGZ0NvbG9yAHJnYigwLCAwLCAwKT4H/okAAAAQdEVYdElucHV0Rm9udFNpemUALTEOCQNiAAAA
+OHpUWHRJbnB1dExhdGV4AAAImYtJSk3PzKtOLSxNLMnMz9OqVa0wSFRQiCnJSC1JBLFjUvNS0KQB
+BeITQSn2MPYAAAARdEVYdElucHV0TWF0aE1vZGUALi4uCNsBdgAAAD96VFh0SW5wdXRQcmVhbWJs
+ZQAACJmLKS1OLUhMzk5MT61OzC3OTSzJqFWtMEiMQRUvrsxNwiaelp9XUgyWAAA+JB0kqQQ+OAAA
+ABB0RVh0SW5wdXRVc2VyU2NyaXB0APXeDvwAAAAWdEVYdElucHV0VXNlclNjcmlwdFBhcmFtcwC9
+zt32AAAAEnRFWHRJbnB1dFZlY3RvclNjYWxlADHChiHPAAAAF3RFWHRTZXR0aW5nc0JCb3JkZXJP
+ZmZzZXQAMDb9LU0AAAAgdEVYdFNldHRpbmdzQ2FsY0Vwc0JvdW5kaW5nQm94AGZhbHNlT1Gm3gAA
+ABd0RVh0U2V0dGluZ3NMQm9yZGVyT2Zmc2V0ADDbjjU4AAAAGnRFWHRTZXR0aW5nc091dGxpbmVG
+b250cwBmYWxzZQyMba0AAAAXdEVYdFNldHRpbmdzUkJvcmRlck9mZnNldAAwcp+yAgAAABd0RVh0
+U2V0dGluZ3NUQm9yZGVyT2Zmc2V0ADBQZWbwAAAAFXRFWHRTZXR0aW5nc1dhbnRQREYAZmFsc2XE
+8r6OAAAAFHRFWHRTZXR0aW5nc1dhbnRSYXcAdHJ1ZQe8HYAAAAAUdEVYdFNldHRpbmdzV2FudFNW
+RwB0cnVloqiBbwAAABx0RVh0U29mdHdhcmUAS0xhdGV4Rm9ybXVsYSA0LjAuMH8N9OMAAAN4SURB
+VGiB7Zr9beMwDMV/CrqAb4SukBWyQm+E3Ai5EdIR0hHaES4jtCM0I8Qj8P6o7CqyqG/foUAfYAR1
+YumVj6RIyUZE+ArY/G8Cufgm2hvfRHvjyxC9W2tgY8wAbJ1bo4i8VQ8oIl0vYA/8ASRwvQP7mnFN
+r4RvjNkBJ+De3hqBF/sJ8OB8dwZ+ishILjpZ8cit5Y7A4P1mAF6d37wWzdFIcGApsyqttejNP7Q6
+0YCFoiSd507eM/erEVVIZlnH+qr73GlNor7c2f4WkF98f+5CNCCdANvCMfzn0y5TOME+MEl2QDjj
+XL0xnrsRtZL5E1xzZMtwnWvqmZK1/mSDyMWjlCRtHYMx5j72gyyixpgDsPNuX0TksZZZAG1EbXFx
+CHzVkyTcFjAL5Fj0yFLyaR2vhT+edm9GlKj1m33gq6dG34xaL4SURUOSAzyVTpSBOult2Ray5ouI
+XGrZpKJbQ8yiD8r9c81EDvoRjfjmKCKtsmsSR1XSLBoiCW2RPkGzaDQ4F0Rt3tSI1jdnn+gm/QN6
+TuthUX+Fm1BmUXRrnlvXdWNMLAVF1bohaoNIG6w12kG3JhQGk5aSoA9R1T+TudmrE/0+aN44KK05
+lTr0XRk/2crMFl1bdju+ZtFkNnGlj/lPj7QUC6T0kpxo2v7VlWwO570nY8yVRE24EkYR+ZH60R3M
+/qORPNMufWy1y/L/aX805p8vrYWIMUYjCZlEp2CKrb898mcskLKW5YmoWnq1FMkONMXecpflFNEe
++XOLrlh2kTMR1QKpR/6M+n/uIBvbG2lYM9EX9V7RLlRaTjGYi3Ct0CmqbTfo/tMj2jWSFxHpRnTN
+aC/uFGLSt1bzmuwjFftWMaKt0qu+WdPSrHkWqhGt2gWMEa2OeFvkhPzzsXalU4k2dpyhzbUq35yw
+oU9SnxEJoqatyg2N0R3AgeWSfBGR360DDwTag8ouc2B5ciLArrmD1drYSqL+KXPVOVSM6HMrUcJH
+h69UnEPF+vpFQNmgKMHJ+3sEfjVmj09ErJHtVyxPjLPON4ult5NlvyAQkNwPoC5+qRHdeZPlnaMv
+96uynqsmGrBq8iCV5e7KKiRDRH0ZgxLykS/9TNHVJ6NEHRdwyR6wKYbPHQ83775T+GJBF6KW0BZ9
+L3N2DQKvDa11RV/QslsxO+sSWz6K6dF+VhXAtfgLUjfMBAdb7E8AAAAASUVORK5CYII=
+"
+       id="image1027"
+       x="77.110207"
+       y="67.368263"
+       inkscape:export-filename="/home/dinesh/collision_sph/manuscript/images/de_2021_cylinder_rolling_on_an_inclined_plane/schematic_2.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+  </g>
+</svg>

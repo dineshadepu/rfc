@@ -107,7 +107,7 @@ class Mohseni2021ControlledSlidingOnAFlatSurface(Application):
         self.wall_rho = 2700.
 
         # solver data
-        self.tf = 1.
+        self.tf = 1.5
         self.dt = 1e-4
 
         # Rigid body collision related data
@@ -351,7 +351,7 @@ class Mohseni2021ControlledSlidingOnAFlatSurface(Application):
         t, v_x, v_y = [], [], []
         f_n, f_t = [], []
 
-        for sd, rb in iter_output(files[::1], 'rigid_body'):
+        for sd, rb in iter_output(files[::5], 'rigid_body'):
             no_frc_idx_fn = len(np.where(rb.force_idx_fn == 1)[0])
             no_frc_idx_ft = len(np.where(rb.force_idx_ft == 1)[0])
 
@@ -362,12 +362,13 @@ class Mohseni2021ControlledSlidingOnAFlatSurface(Application):
             f_n.append(-rb.tmp_normal_force[0] * no_frc_idx_fn)
             f_t.append(rb.tmp_tangential_force[0] * no_frc_idx_ft)
 
-        fig, ax1 = plt.subplots(figsize=(12, 10))
+        fig, ax1 = plt.subplots(figsize=(10, 8))
+        ax1.grid()
 
         ax2 = ax1.twinx()
 
         ax1.plot(t, f_n, label=r'$F_n$')
-        ax1.plot(t, f_t, "-^", label=r'$F_t$')
+        ax1.plot(t, f_t, "-", label=r'$F_t$')
 
         ax2.plot(t, v_x, color="black", label='V t')
         # ax2.plot(t, v_y, label='V n')
@@ -378,6 +379,7 @@ class Mohseni2021ControlledSlidingOnAFlatSurface(Application):
 
         ax2.set_ylabel('Velocity', color='b')
         ax2.legend(loc="lower right")
+        ax2.grid()
 
         fig = os.path.join(os.path.dirname(fname), "force_velocity_vs_t.pdf")
         plt.savefig(fig, dpi=300)

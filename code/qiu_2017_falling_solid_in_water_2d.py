@@ -14,6 +14,7 @@ from geometry import (get_fluid_tank_3d, get_2d_block, hydrostatic_tank_2d)
 from boundary_particles import (add_boundary_identification_properties,
                                 get_boundary_identification_etvf_equations)
 from fluids import ETVFScheme
+from rigid_body_3d import (get_files_at_given_times_from_log)
 
 
 class Qiu2017FallingSolidInWater2D(Application):
@@ -279,7 +280,7 @@ class Qiu2017FallingSolidInWater2D(Application):
         if self.options.scheme == 'etvf':
             scheme.configure(pb=self.p0, nu=self.nu, h=h0)
 
-            times = [0.4, 0.6, 0.8]
+            times = np.array([0., 0.2, 0.3, 0.4])
             self.scheme.configure_solver(dt=dt, tf=self.tf, output_at_times=times)
 
     def _make_accel_eval(self, equations, pa_arrays):
@@ -308,7 +309,7 @@ class Qiu2017FallingSolidInWater2D(Application):
             a_eval.evaluate(t, dt)
 
     def post_process(self, fname):
-        from pysph.solver.utils import iter_output, get_files
+        from pysph.solver.utils import iter_output, get_files, load
         import os
         info = self.read_info(fname)
         files = self.output_files
@@ -346,6 +347,44 @@ class Qiu2017FallingSolidInWater2D(Application):
         plt.legend()
         fig = os.path.join(os.path.dirname(fname), "ycom.pdf")
         plt.savefig(fig, dpi=300)
+
+        # ========================
+        # generate plots
+        # ========================
+        info = self.read_info(fname)
+        output_files = self.output_files
+        output_times = np.array([0., 0.2, 0.3, 0.4, 0.5])
+        logfile = os.path.join(
+            os.path.dirname(fname),
+            'qiu_2017_falling_solid_in_water_2d.log')
+        to_plot = get_files_at_given_times_from_log(output_files, output_times,
+                                                    logfile)
+
+        for i, f in enumerate(to_plot):
+            # print(i, f)
+            data = load(f)
+            t = data['solver_data']['t']
+            tank = data['arrays']['dam']
+            fluid = data['arrays']['fluid']
+            rigid_body = data['arrays']['rigid_body']
+
+            s = 0.2
+            # print(_t)
+            fig, axs = plt.subplots(1, 1)
+            axs.scatter(fluid.x, fluid.y, s=s, c=fluid.p)
+            axs.scatter(tank.x, tank.y, s=s, c=tank.m)
+            # axs.grid()
+            axs.set_aspect('equal', 'box')
+            # axs.set_title('still a circle, auto-adjusted data limits', fontsize=10)
+
+            tmp = axs.scatter(rigid_body.x, rigid_body.y, s=s, c=rigid_body.m)
+
+            # save the figure
+            figname = os.path.join(os.path.dirname(fname), "time" + str(i) + ".png")
+            fig.savefig(figname, dpi=300)
+        # ========================
+        # generate plots ends
+        # ========================
 
     def customize_output(self):
         self._mayavi_config('''
